@@ -27,8 +27,8 @@ Nesse primeiro momento, onde vamos ajudá-los, a clínica precisa organizar os d
 O que temos desses dados?
 
 * **Dados de Pacientes**: *Nome, Plano de Saúde, Carteirinha, Endereço, Telefone*
-* **Dados de Profissionais da Saúde**: *Nome, Documento profissional (ex: CRM para médicas(os), Coren para enfermeiras(os)), Especialidade, Endereço, Telefone*
-* **Dados de Consultas**: *Profissional da Saúde, Paciente, Data Hora, Prescrições (remédios receitados), Exames (exames prescritos), Prontuário (anotações da consulta)*
+* **Dados de Médicos**: *Nome, Documento profissional (ex: CRM), Especialidade, Telefone*
+* **Dados de Consultas**: *Médico, Paciente, Data Hora, Prescrições (remédios receitados), Exames (exames prescritos), Prontuário (anotações da consulta)*
 
 Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? Como a gente vai organizar isso? Podemos organizar nossos dados de forma relacional e de forma não relacional. Para isso podemos utilizar um banco de dados relacional ou um banco de dados não relacional. Mas o que é cada uma dessas duas formas diferentes???!
 
@@ -36,7 +36,7 @@ Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? C
 
 ---
 
-### Banco de dados relacionais
+### Banco de dados relacionais (SQL)
 
 No banco de dados relacional nossas informações ficam em tabelas e se relacionam. Vamos montar nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
 
@@ -44,31 +44,58 @@ No banco de dados relacional nossas informações ficam em tabelas e se relacion
 
 Vamos simular esse banco em uma tabela? https://docs.google.com/spreadsheets/d/1G0tPKeKvCHS1_Q0-w6GAWa4G_xKwdcwN73c9dOxL0V4/edit#gid=1916395408
 
-### Banco de dados não relacionais
+### Banco de dados não relacionais (noSQL)
 
-No banco de dados não relacional não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? Ficam em documentos!
+No banco de dados não relacional não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? 
     
-Como ficariam minhas consultas em um banco noSQL (não relacional)?
+#### Modelos de bancos noSQL
+    
+MongoDB – CRUD, collection, database, document;
+    
+    (Citar "modelos" => Documento, Grafos, Chave/Valor, Colunas )
+    
+### Base de dados no banco de dados não relacional
+    
+Como ficariam as consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional)? Poderiam ficar assim nesse formato, por exemplo:
     
 ```
 [
     {
-        "id": ,
-        "dataHora": ,
-        "profissionalSaude" : { },
-        "paciente": {},
-        "prescricoes": "",
-        "exames": "",
-        prontuario: "",
+        "_id": "a24e470f-08c0-4c03-8312-18575a41d247",
+        "dataHora": "12/07/2021 10:00:00" ,
+        "medico" : { 
+                nome: "Sarah Freitas", 
+                documentoProfissional: "CRM-SP 1234",
+                especialidade: "Clínica Médica",
+                telefone: "(11) 1212-12112",
+        },
+        "paciente": {
+                nome: "Rita da Silva",
+                telefone: "(11) 8888-8888"
+        },
+        "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
+        "exames": "Ressonancia Magnetica e Raio X",
+        prontuario: "Paciente se queixa de dor nas costas",
     },
     {
-        "id": ,
-        "dataHora": ,
-        "profissionalSaude" : { },
-        "paciente": {},
-        "prescricoes": "",
-        "exames": "",
-        prontuario: "",
+        "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
+        "dataHora": "12/07/2021 11:00",
+        "medico" : { 
+                nome: "Sarah Freitas", 
+                documentoProfissional: "CRM-SP 1234",
+                especialidade: "Clínica Médica",
+                telefone: "(11) 1212-12112",
+        },
+        "paciente": {
+                nome: "Daniel Borges",
+                planoSaude : "Bradesco",
+                carteirinha: "98765432",
+                endereco: "Avenida dos Papagaios número 131 apto 55A",
+                telefone: "(11) 7777-7777"
+        },
+        "prescricoes": "Remédio para dor de estômago",
+        "exames": "Endoscopia",
+        prontuario: "Paciente se queixa de dor e queimação no estômago",
     },
 ```
     
@@ -78,9 +105,4 @@ Como ficariam minhas consultas em um banco noSQL (não relacional)?
 
 * O conceito de modelo relacional (SQL) se baseia no armazenamento de dados em tabelas que se relacionam. Já no modelo não-relacional (NoSQL) esses dados ficam armazenados em, por exemplo, documentos.
 * Como saber então qual utilizar? Não sei! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
-    
-### Modelos de Banco de Dados Não Relacionais
-    
-MongoDB – CRUD, collection, database, document;
-    
-    (Citar "modelos" => Documento, Grafos, Chave/Valor, Colunas )
+
