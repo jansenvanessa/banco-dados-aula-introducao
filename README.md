@@ -40,7 +40,7 @@ Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? C
 
 No banco de dados relacional nossas informações ficam em tabelas e se relacionam. Vamos montar nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
 
-<IMAGEM>
+![bd_relacional](https://i.imgur.com/8l5vVxf.png?1)
 
 Vamos simular esse banco em uma tabela? https://docs.google.com/spreadsheets/d/1G0tPKeKvCHS1_Q0-w6GAWa4G_xKwdcwN73c9dOxL0V4/edit#gid=1916395408
 
@@ -50,9 +50,9 @@ No banco de dados não relacional não temos esse esquema de tabelas e linhas de
     
 #### Modelos de bancos noSQL
     
-MongoDB – CRUD, collection, database, document;
+// TO DO
+MongoDB – CRUD, collection, database, document;  (Citar "modelos" => Documento, Grafos, Chave/Valor, Colunas )
     
-    (Citar "modelos" => Documento, Grafos, Chave/Valor, Colunas )
     
 ### Base de dados no banco de dados não relacional
     
@@ -97,12 +97,89 @@ Como ficariam as consultas médicas do Jansen's Anatomy em um banco noSQL (não 
         "exames": "Endoscopia",
         prontuario: "Paciente se queixa de dor e queimação no estômago",
     },
+    // E todo o restante dos dados em diante
+]
 ```
     
-### Resumindo: Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (NoSQL):
+### Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (NoSQL):
     
 ![sql_nosql](https://miro.medium.com/max/1012/1*yYKwVI81AiZA78NJySgRYQ.png)
 
-* O conceito de modelo relacional (SQL) se baseia no armazenamento de dados em tabelas que se relacionam. Já no modelo não-relacional (NoSQL) esses dados ficam armazenados em, por exemplo, documentos.
-* Como saber então qual utilizar? Não sei! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
+//TO DO
 
+#### Banco de Dados Relacional (SQL):
+* Vantagens: 
+* Desvantagens:
+
+#### Banco de Dados Não Relacional (NoSQL):
+* Vantagens: 
+* Desvantagens:
+
+* **Como saber então qual utilizar?** Não sei! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
+
+## SGBD (Sistema de Gerenciamento de Banco de Dados)
+//TO DO
+< Imagem>
+
+### O que é?
+//TO DO
+## Instalação do MongoDB e Robo 3T
+
+## Comandos básicos
+
+1. Base de Dados
+    1. Exibir existentes - `show dbs`
+    1. Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
+    1. Excluir base selecionada - `db.dropDatabase()`
+1. Coleção
+    1. Criar coleção de documentos - `db.createCollection('nome-da-collection')` (Mongo é case sensitive)
+    1. Exibir todas as coleções - `show collections`
+    1. Apagar coleção de documentos - `db.nomedacollection.drop()`
+1. Documentos
+    1. Inserir - `db.nomedacollection.insert(documento)`
+    1. Importar documentos de um arquivo - `mongoimport <options> <connection-string> <file>`
+    1. Consultar -  `db.nomedacollection.find({selecao})`
+        1. Igualdade - `{<key>:<value>}`
+        1. Menor que - `{<key>:{$lt:<value>}}`
+        1. Menor ou igual - `{<key>:{$lte:<value>}}`
+        1. Maior que - `{<key>:{$gt:<value>}}`
+        1. Maior ou igual - `{<key>:{$gte:<value>}}`
+        1. Diferente - `{<key>:{$ne:<value>}}`
+        1. AND - `{<key>:<value>, <key>:<value>}`
+        1. OR - `$or:[{<key>:<value>},{<key>:<value>}]`
+    1. Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
+    1. Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
+    1. Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
+    1. Limitar - `db.nomedacollection.find().limit(numero)`
+    1. "Pular" - `db.nomedacollection.find().skip(numero)`
+    1. Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
+
+### Comandos extras
+
+* Embelezamento - `pretty()`
+* Atualizar ou Inserir - `save()`
+* Indexação
+* Agregação
+* Backup
+* Restauração
+
+## Acabamos, e agora? Vamos exercitar!
+
+![exercise](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkx9NbIzjUfe7io1-mvfkRybTZGH-C0RL0A&usqp=CAU)
+
+Agora que já sabemos o que é um banco de dados, já sabemos como instalar um e já conhecemos os comandos para utilizá-lo, podemos e devemos exercitar! O que podemos criar de novo? O que podemos atualizar? O que podemos buscar de informação nesse banco de dados?
+
+// TO DO - passar dever de casa
+
+Espero que tenha gostado da atividade e o segredo é praticar!!! Quanto mais exercícios fizer, melhor :) Abs e até mais!
+
+---
+## Links Extras:
+
+- [https://kenzie.com.br/blog/banco-de-dados/](https://kenzie.com.br/blog/banco-de-dados/)
+- [https://rockcontent.com/br/blog/banco-de-dados/](https://rockcontent.com/br/blog/banco-de-dados/)
+- [https://medium.com/xp-inc/comparando-os-termos-utilizados-no-nosql-com-sql-e862788e2374](https://medium.com/xp-inc/comparando-os-termos-utilizados-no-nosql-com-sql-e862788e2374)
+- [https://medium.com/@albsilva/o-fantastico-mundo-do-nosql-2e72c5640e69](https://medium.com/@albsilva/o-fantastico-mundo-do-nosql-2e72c5640e69)
+- [https://gabriel-faraday.medium.com/o-que-%C3%A9-nosql-9d7fd54792d4](https://gabriel-faraday.medium.com/o-que-%C3%A9-nosql-9d7fd54792d4)
+- [https://medium.com/qaninja/principais-diferen%C3%A7as-de-um-banco-de-dados-tradicional-e-o-mongodb-4fc1117453f8](https://medium.com/qaninja/principais-diferen%C3%A7as-de-um-banco-de-dados-tradicional-e-o-mongodb-4fc1117453f8)
+- [https://www.fiveacts.com.br/sgbd/](https://www.fiveacts.com.br/sgbd/)
