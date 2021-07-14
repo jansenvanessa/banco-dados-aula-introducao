@@ -5,7 +5,7 @@
 
 ## O que é um banco de dados?
 
-Antigamente organizávamos nossos dados em papel e arquivos físicos, e com o tempo ficava bem difícil administrar essas informações. Hoje com o banco de dados conseguimos armazenar essas informações digitalmente e recuperar muito mais facilmente os dados que precisamos.
+Antigamente organizávamos nossos dados em papel e arquivos físicos, e com o tempo ficava bem difícil administrar essas informações. Além da dificuldade para lidar com essas informações, existia também um enorme risco de perdermos essa folha de papel que tinha nosso dado ou mesmo cair em mãos erradas. Hoje com um banco de dados conseguimos armazenar essas informações digitalmente, de forma segura, e recuperar muito mais facilmente os dados que precisamos, além de permitir que mais de uma pessoa acesse a mesma informação ao mesmo tempo, o que seria impossível com uma única folha de papel.
 
 Em termos gerais, podemos definir banco de dados como uma coleção organizada onde se pode armazenar dados, de forma estruturada podendo ser consultada por um programa ou pessoa permitindo extrair informações. Ficou um pouco confuso? Não se preocupe, vamos entender melhor o que é e como funciona ao longo desse curso! Ao final essa definição ficará muito mais clara.
 
@@ -40,21 +40,31 @@ Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? C
 
 ### Banco de dados relacionais (SQL)
 
-No banco de dados relacional nossas informações ficam em tabelas e se relacionam. Vamos montar nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
+No banco de dados relacional nossas informações ficam em tabelas e se relacionam. Os bancos de dados relacionais são conhecidos como banco de dados SQL. Essa sigla SQL siginifica “Structured Query Language” que traduzindo para o português significa: “Linguagem de Consulta Estruturada”.
+Com o SQL, você pode executar vários comandos para criar, alterar, gerenciar, consultar, dentre outras informações no seu banco de dados. Costumamos dizer que bancos SQL seguem uma modelagem relacional, pois estes se baseiam no fato de que todos seus dados sejam guardados em tabelas.
+
+Agora que entendemos um pouco o que seria um banco de dados relacional, vamos montar um esboço do nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
 
 ![bd_relacional](https://i.imgur.com/8l5vVxf.png?1)
 
 Vamos simular esse banco em uma tabela? https://docs.google.com/spreadsheets/d/1G0tPKeKvCHS1_Q0-w6GAWa4G_xKwdcwN73c9dOxL0V4/edit#gid=1916395408
 
+Um exemplo de um comando SQL para trazer todas as informações da minha tabela de Pacientes seria:
+
+```
+SELECT * FROM PACIENTES
+```
+Esse comando acima significa: *selecionar tudo de Pacientes*. Feito isso serão retornadas todas as linhas da tabela Pacientes.
+
 ### Banco de dados não relacionais (noSQL)
 
-No banco de dados não relacional não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
+No banco de dados não relacional não utilizamos o *SQL* (por isso chamamos de noSQL - não SQL) e também não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
 
-![bd_nao_relacional](https://i.imgur.com/LqwYMCV.png?1)
+![bd_nao_relacional](https://i.imgur.com/fHnOR4O.png)
 
 #### Banco de dados de Documentos (noSQL)
     
-Esse banco de dados foi projetado para armazenar e consultar dados como documentos do tipo JSON. Os bancos de dados de documentos facilitam para que os desenvolvedores armazenem e consultem dados usando o mesmo formato de modelo de documento que usam no código da aplicação. Um exemplo de banco de dados de documentos é o famoso MongoDB!
+Esse banco de dados foi projetado para armazenar e consultar dados como documentos do tipo JSON. Os bancos de dados de documentos facilitam para que os desenvolvedores armazenem e consultem dados usando o mesmo formato de modelo de documento que usam no código da aplicação. **Um exemplo de banco de dados de documentos é o famoso MongoDB!**
 
 As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de Documentos ficariam assim nesse formato:
     
@@ -102,7 +112,7 @@ As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de
 ```
 #### Banco de dados de Grafos (noSQL)
 
-Esse banco de dados foi criado especificamente para possibilitar o armazenamento de relacionamentos e a navegação por eles. Os relacionamentos são elementos distintos que agregam a maior parte do valor para os bancos de dados grafo. Os bancos de dados grafo usam nós para armazenar entidades de dados e bordas para armazenar os relacionamentos entre as entidades. Uma borda tem sempre um nó inicial, um nó final, um tipo e um direcionamento, o que possibilita a descrição dos relacionamentos entre pais e filhos, das ações, das propriedades e assim por diante. A quantidade e os tipos de relacionamentos que um nó pode ter são ilimitados. Um exemplo de banco de dados de Grafos é o Arangodb.
+Esse banco de dados foi criado especificamente para possibilitar o armazenamento de relacionamentos e a navegação por eles. Os relacionamentos são elementos distintos que agregam a maior parte do valor para os bancos de dados grafo. Os bancos de dados grafo usam nós para armazenar entidades de dados e bordas para armazenar os relacionamentos entre as entidades. Uma borda tem sempre um nó inicial, um nó final, um tipo e um direcionamento, o que possibilita a descrição dos relacionamentos entre pais e filhos, das ações, das propriedades e assim por diante. A quantidade e os tipos de relacionamentos que um nó pode ter são ilimitados. **Um exemplo de banco de dados de Grafos é o Arangodb.**
 
 O gráfico a seguir é um exemplo de gráfico de rede social. Considerando as pessoas (nós) e seus relacionamentos (bordas), é possível descobrir quem são os “amigos dos amigos” de uma pessoa específica:
 
@@ -110,15 +120,17 @@ O gráfico a seguir é um exemplo de gráfico de rede social. Considerando as pe
 
 #### Banco de dados de Chave-Valor (noSQL)
 
-É um tipo de banco de dados não relacional que usa um método de chave-valor simples para armazenar dados. Um banco de dados de chave-valor armazena dados como um conjunto de pares de chave-valor em que uma chave funciona como um identificador exclusivo. Os dados dentro de bancos de chave-valor são formados por duas partes: uma string, que representa a chave, e os dados em si, que são o valor. A chave é usada como um índice, permitindo que o usuário faça a requisição dos dados relacionados a ela. Um exemplo de banco de dados de Chave-Valor é o Redis.
+É um tipo de banco de dados não relacional que usa um método de chave-valor simples para armazenar dados. Um banco de dados de chave-valor armazena dados como um conjunto de pares de chave-valor em que uma chave funciona como um identificador exclusivo. Os dados dentro de bancos de chave-valor são formados por duas partes: uma string, que representa a chave, e os dados em si, que são o valor. A chave é usada como um índice, permitindo que o usuário faça a requisição dos dados relacionados a ela. **Um exemplo de banco de dados de Chave-Valor é o Redis.**
 
 #### Banco de dados Colunar (noSQL)
 
-Enquanto um banco de dados relacional é otimizado para armazenar linhas de dados, um banco de dados colunar é otimizado para recuperação rápida de colunas de dados, normalmente em aplicativos analíticos. O armazenamento orientado a colunas para tabelas do banco de dados é um fator importante para a performance de consulta analítica, pois ele reduz expressivamente os requisitos gerais de E/S de disco e diminui a quantidade de dados que você precisa carregar do disco. Um exemplo de banco de dados colunar é o Cassandra.
+Enquanto um banco de dados relacional é otimizado para armazenar linhas de dados, um banco de dados colunar é otimizado para recuperação rápida de colunas de dados, normalmente em aplicativos analíticos. O armazenamento orientado a colunas para tabelas do banco de dados é um fator importante para a performance de consulta analítica, pois ele reduz expressivamente os requisitos gerais de E/S de disco e diminui a quantidade de dados que você precisa carregar do disco. **Um exemplo de banco de dados colunar é o Cassandra.**
     
-### Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (NoSQL):
+### Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (noSQL)
+
+Agora que sabemos o que é um banco relacional (SQL) e um banco de dados não relacional (noSQL), podemos falar um pouquinho das vantagens e desvantagens de cada um desses:
     
-![sql_nosql](https://miro.medium.com/max/1012/1*yYKwVI81AiZA78NJySgRYQ.png)
+![sql_nosql](https://miro.medium.com/max/1400/0*LR8ZkHpzwTAZjBtI.png)
 
 //TO DO
 
@@ -130,7 +142,9 @@ Enquanto um banco de dados relacional é otimizado para armazenar linhas de dado
 * Vantagens: 
 * Desvantagens:
 
-* **Como saber então qual utilizar?** Não sei! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
+#### Qual banco de dados utilizar? SQL ou NoSQL?
+
+Depende! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
 
 ## SGBD (Sistema de Gerenciamento de Banco de Dados)
 //TO DO
