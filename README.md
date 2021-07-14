@@ -5,9 +5,11 @@
 
 ## O que é um banco de dados?
 
-![banco_de_dados](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW8kxwgWPiXr77gcQiAxMqBTLKkuJlFK8PfRRWHsUjyeJ0NvLeGAjQHKemgrFZCJYHRZ0&usqp=CAU)
+Antigamente organizávamos nossos dados em papel e arquivos físicos, e com o tempo ficava bem difícil administrar essas informações. Hoje com o banco de dados conseguimos armazenar essas informações digitalmente e recuperar muito mais facilmente os dados que precisamos.
 
-* Banco de dados é uma coleção organizada onde se pode armazenar dados, de forma estruturada podendo ser consultada por um programa ou pessoa permitindo extrair informações.
+Em termos gerais, podemos definir banco de dados como uma coleção organizada onde se pode armazenar dados, de forma estruturada podendo ser consultada por um programa ou pessoa permitindo extrair informações. Ficou um pouco confuso? Não se preocupe, vamos entender melhor o que é e como funciona ao longo desse curso! Ao final essa definição ficará muito mais clara.
+
+![banco_de_dados](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW8kxwgWPiXr77gcQiAxMqBTLKkuJlFK8PfRRWHsUjyeJ0NvLeGAjQHKemgrFZCJYHRZ0&usqp=CAU)
 
 ## Clínica Jansen's Anatomy
 
@@ -15,7 +17,7 @@
 
 ### Problema
 
-A clínica Jansen's Health é um pouco "cringe" então costuma agendar as consultas e dados do paciente na agenda a caneta. Com o passar do tempo e com a clínica crescendo está ficando insustentável manter o que temos hoje. Toda vez que precisamos de qualquer informação do paciente ou mesmo das consultas do médico demoramos muito para achar o que precisamos. Além disso temos dados super importantes em anotações, como prontuário e todo um histórico de pacientes. Se perdermos uma folha, podemos perder algo muito importante e sensível. Com todo esse cenário caótico, a clínica pediu nossa ajuda para organizar esses dados para melhorar o dia a dia deles e dos pacientes.
+A clínica Jansen's Health é um pouco "cringe", então costuma agendar as consultas e dados do paciente na agenda a caneta. Com o passar do tempo e com a clínica crescendo está ficando insustentável manter o que temos hoje. Toda vez que precisamos de qualquer informação do paciente ou mesmo das consultas do médico demoramos muito para achar o que precisamos. Além disso temos dados super importantes em anotações, como prontuário e todo um histórico de pacientes. Se perdermos uma folha, podemos perder algo muito importante e sensível. Com todo esse cenário caótico, a clínica pediu nossa ajuda para organizar esses dados para melhorar o dia a dia deles e dos pacientes.
 
 ![homer_desesperado](https://medicinamardelplata.files.wordpress.com/2018/05/homer.png)
 
@@ -30,7 +32,7 @@ O que temos desses dados?
 * **Dados de Médicos**: *Nome, Documento profissional (ex: CRM), Especialidade, Telefone*
 * **Dados de Consultas**: *Médico, Paciente, Data Hora, Prescrições (remédios receitados), Exames (exames prescritos), Prontuário (anotações da consulta)*
 
-Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? Como a gente vai organizar isso? Podemos organizar nossos dados de forma relacional e de forma não relacional. Para isso podemos utilizar um banco de dados relacional ou um banco de dados não relacional. Mas o que é cada uma dessas duas formas diferentes???!
+Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? Como a gente vai organizar isso? Podemos organizar nossos dados de forma relacional e de forma não relacional. Mas o que é cada uma dessas duas formas diferentes???!
 
 ![bob_esponja_pensativo](https://64.media.tumblr.com/tumblr_m2a0k4mEF71rsmfs0o1_250.gifv)
 
@@ -46,17 +48,15 @@ Vamos simular esse banco em uma tabela? https://docs.google.com/spreadsheets/d/1
 
 ### Banco de dados não relacionais (noSQL)
 
-No banco de dados não relacional não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? 
+No banco de dados não relacional não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
+
+![bd_nao_relacional](https://i.imgur.com/LqwYMCV.png?1)
+
+#### Banco de dados de Documentos (noSQL)
     
-#### Modelos de bancos noSQL
-    
-// TO DO
-MongoDB – CRUD, collection, database, document;  (Citar "modelos" => Documento, Grafos, Chave/Valor, Colunas )
-    
-    
-### Base de dados no banco de dados não relacional
-    
-Como ficariam as consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional)? Poderiam ficar assim nesse formato, por exemplo:
+Esse banco de dados foi projetado para armazenar e consultar dados como documentos do tipo JSON. Os bancos de dados de documentos facilitam para que os desenvolvedores armazenem e consultem dados usando o mesmo formato de modelo de documento que usam no código da aplicação. Um exemplo de banco de dados de documentos é o famoso MongoDB!
+
+As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de Documentos ficariam assim nesse formato:
     
 ```
 [
@@ -100,6 +100,21 @@ Como ficariam as consultas médicas do Jansen's Anatomy em um banco noSQL (não 
     // E todo o restante dos dados em diante
 ]
 ```
+#### Banco de dados de Grafos (noSQL)
+
+Esse banco de dados foi criado especificamente para possibilitar o armazenamento de relacionamentos e a navegação por eles. Os relacionamentos são elementos distintos que agregam a maior parte do valor para os bancos de dados grafo. Os bancos de dados grafo usam nós para armazenar entidades de dados e bordas para armazenar os relacionamentos entre as entidades. Uma borda tem sempre um nó inicial, um nó final, um tipo e um direcionamento, o que possibilita a descrição dos relacionamentos entre pais e filhos, das ações, das propriedades e assim por diante. A quantidade e os tipos de relacionamentos que um nó pode ter são ilimitados. Um exemplo de banco de dados de Grafos é o Arangodb.
+
+O gráfico a seguir é um exemplo de gráfico de rede social. Considerando as pessoas (nós) e seus relacionamentos (bordas), é possível descobrir quem são os “amigos dos amigos” de uma pessoa específica:
+
+![bd_nao_relacional](https://d1.awsstatic.com/diagrams/foaf-graph.e5e42865e0ee97a2972f9014d28f525ef68a981b.png)
+
+#### Banco de dados de Chave-Valor (noSQL)
+
+É um tipo de banco de dados não relacional que usa um método de chave-valor simples para armazenar dados. Um banco de dados de chave-valor armazena dados como um conjunto de pares de chave-valor em que uma chave funciona como um identificador exclusivo. Os dados dentro de bancos de chave-valor são formados por duas partes: uma string, que representa a chave, e os dados em si, que são o valor. A chave é usada como um índice, permitindo que o usuário faça a requisição dos dados relacionados a ela. Um exemplo de banco de dados de Chave-Valor é o Redis.
+
+#### Banco de dados Colunar (noSQL)
+
+Enquanto um banco de dados relacional é otimizado para armazenar linhas de dados, um banco de dados colunar é otimizado para recuperação rápida de colunas de dados, normalmente em aplicativos analíticos. O armazenamento orientado a colunas para tabelas do banco de dados é um fator importante para a performance de consulta analítica, pois ele reduz expressivamente os requisitos gerais de E/S de disco e diminui a quantidade de dados que você precisa carregar do disco. Um exemplo de banco de dados colunar é o Cassandra.
     
 ### Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (NoSQL):
     
