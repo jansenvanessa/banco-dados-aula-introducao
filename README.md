@@ -147,12 +147,16 @@ Agora que sabemos o que é um banco relacional (SQL) e um banco de dados não re
 Depende! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
 
 ## SGBD (Sistema de Gerenciamento de Banco de Dados)
-//TO DO
-< Imagem>
 
-### O que é?
-//TO DO
+Os Sistemas de Gerenciamento de Banco de Dados são softwares utilizados para gerir as estruturas de armazenamento dos dados, permitem realizar manipulações, bem como controlar as permissões de utilização dos bancos de dados. Aqui nesse curso iremos focar no MongoDB para trabalhar com nossos dados!
+
+![sgdb](https://i.imgur.com/kJokS8A.png?1)
+
+## O que é o MongoDB?
+
 ## Instalação do MongoDB e Robo 3T
+
+
 
 ## Comandos básicos
 
