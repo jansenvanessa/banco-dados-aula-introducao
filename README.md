@@ -58,7 +58,7 @@ Esse comando acima significa: *selecionar tudo de Pacientes*. Feito isso serão 
 
 ### Banco de dados não relacionais (noSQL)
 
-No banco de dados não relacional não utilizamos o *SQL* (por isso chamamos de noSQL - não SQL) e também não temos esse esquema de tabelas e linhas de tabela. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
+No banco de dados não relacional não utilizamos o *SQL* (por isso chamamos de noSQL - não SQL) e também não temos esse esquema de tabelas e linhas. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
 
 ![bd_nao_relacional](https://i.imgur.com/fHnOR4O.png)
 
@@ -112,7 +112,7 @@ As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de
 ```
 #### Banco de dados de Grafos (noSQL)
 
-Esse banco de dados foi criado especificamente para possibilitar o armazenamento de relacionamentos e a navegação por eles. Os relacionamentos são elementos distintos que agregam a maior parte do valor para os bancos de dados grafo. Os bancos de dados grafo usam nós para armazenar entidades de dados e bordas para armazenar os relacionamentos entre as entidades. Uma borda tem sempre um nó inicial, um nó final, um tipo e um direcionamento, o que possibilita a descrição dos relacionamentos entre pais e filhos, das ações, das propriedades e assim por diante. A quantidade e os tipos de relacionamentos que um nó pode ter são ilimitados. **Um exemplo de banco de dados de Grafos é o Arangodb.**
+Os bancos de dados grafo utilizam nós para armazenar entidades de dados e bordas para armazenar os relacionamentos entre as entidades. Uma borda tem sempre um nó inicial, um nó final, um tipo e um direcionamento, o que possibilita a descrição dos relacionamentos entre pais e filhos, das ações, das propriedades e assim por diante. A quantidade e os tipos de relacionamentos que um nó pode ter são ilimitados. **Um exemplo de banco de dados de Grafos é o Arangodb.**
 
 O gráfico a seguir é um exemplo de gráfico de rede social. Considerando as pessoas (nós) e seus relacionamentos (bordas), é possível descobrir quem são os “amigos dos amigos” de uma pessoa específica:
 
@@ -144,7 +144,7 @@ Agora que sabemos o que é um banco relacional (SQL) e um banco de dados não re
 
 #### Qual banco de dados utilizar? SQL ou NoSQL?
 
-Depende! Tudo vai depender do seu projeto, é bom sempre analisar o que precisará ser feito para decidir o que é melhor de usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
+Depende! Tudo vai depender do seu projeto, então sempre bom analisar o que precisará ser feito para decidir qual banco de dados é melhor para usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
 
 ## SGBD (Sistema de Gerenciamento de Banco de Dados)
 
