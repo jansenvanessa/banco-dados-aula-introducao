@@ -128,17 +128,21 @@ Enquanto um banco de dados relacional é otimizado para armazenar linhas de dado
     
 ### Banco de Dados Relacional (SQL) x Banco de Dados Não Relacional (noSQL)
 
-Agora que sabemos o que é um banco relacional (SQL) e um banco de dados não relacional (noSQL), podemos falar um pouquinho das vantagens e desvantagens de cada um desses:
+Agora que sabemos o que é um banco relacional (SQL) e um banco de dados não relacional (noSQL), podemos falar um pouquinho das diferenças de cada um desses:
     
 ![sql_nosql](https://miro.medium.com/max/1400/0*LR8ZkHpzwTAZjBtI.png)
 
-A diferença essencial entre as duas teconologia é que uma é baseada em esquema (Relacional) e a outra não (Não relacional). Para trabalhar com um banco SQL (Relacional) a primeira coisa que voce precisa fazer é projetar a estrutura do banco, isto é, voce não consegue inserir um dado se não tiver previamente definido os "esquemas" das tabelas, enquanto que em um banco de dados NoSQL (Não relacional) isso não é necessário.
+***Vantagens do banco de dados não relacional (NoSQL):*** A vantagem número um é a escalabilidade e a flexibilidade da estruturação, que além de tornar a escalabilidade mais fácil, facilita a inserção e acesso aos dados.
 
-O NoSQL tem muitas vantagens para ser utilizado. Mas não é por isso que devemos utilizá-lo em todas as situações. Em muitos sistemas, você pode (e até deve) usar o modelo relacional. O NoSQL é mais indicado para aqueles sistemas que tenham necessidades maiores de armazenamento e desempenho. O NoSQL não veio para substituir o SQL, mas sim para oferecer mais uma alternativa de um banco de dados mais flexível no suporte de dados. Sendo assim, você pode usar ambas as soluções para diferentes casos de uso. Por isso, o mais comum em soluções escalares de sucesso é a utilização de uma arquitetura híbrida, aproveitando o melhor dois dois modelos.
+***Vantagens do banco de dados relacional (SQL):*** Enquanto que no modelo não relacional (noSQL), onde a consistencia de dados pode ser considerada fraca, no modelo relacional há uma forte consistencia de dados, um dos preços para isso é a estrutura menos flexivel. Outra vantagem é a confiabilididade, modelos relacionais suportam a propriedade ACID (Atomicidade, Consistência, Isolamento e Durabilidade).
+
+A diferença essencial entre as duas teconologia é que uma é baseada em esquema (Relacional) e a outra não (Não relacional). Para trabalhar com um banco SQL (Relacional) a primeira coisa que voce precisa fazer é projetar a estrutura do banco, isto é, voce não consegue inserir um dado se não tiver previamente definido os "esquemas" das tabelas, enquanto que em um banco de dados NoSQL (Não relacional) isso não é necessário.
 
 #### Qual banco de dados utilizar? SQL ou NoSQL?
 
 Depende! Tudo vai depender do seu projeto, então sempre bom analisar o que precisará ser feito para decidir qual banco de dados é melhor para usar. Por exemplo, às vezes fazer consultas em diversas tabelas para conseguir retornar a informação que precisa, quando a base é exageradamente grande, pode exigir muito do seu banco de dados relacional. Pode ser que nesse caso faça sentido utilizar um não relacional (noSQL). Sempre vale uma análise pois cada caso é sempre um caso.
+
+O NoSQL tem muitas vantagens para ser utilizado. Mas não é por isso que devemos utilizá-lo em todas as situações. Em muitos sistemas, você pode (e até deve) usar o modelo relacional. O NoSQL é mais indicado para aqueles sistemas que tenham necessidades maiores de armazenamento e desempenho. O NoSQL não veio para substituir o SQL, mas sim para oferecer mais uma alternativa de um banco de dados mais flexível no suporte de dados. Sendo assim, você pode usar ambas as soluções para diferentes casos.
 
 ## SGBD (Sistema de Gerenciamento de Banco de Dados)
 
