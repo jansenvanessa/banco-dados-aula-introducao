@@ -152,7 +152,12 @@ Os Sistemas de Gerenciamento de Banco de Dados são softwares utilizados para ge
 
 ## O que é o MongoDB?
 
+MongoDB é um banco de dados não relacional (noSQL) orientado a documentos no formato JSON. Ele é opensource e possui alta performance e flexibilidade. Ao contrário de um banco de dados relacional (SQL), ele não possui como restrição a necessidade de ter as tabelas e colunas criadas previamente, permitindo que um ***documento*** represente toda a informação necessária, com todos os dados que você queira, no formato de um JSON. Esses documentos são agrupados em ***collections***, que em conjunto, forma um database (banco de dados).
+
+![mongo_db](https://i.imgur.com/ciBulIx.png)
+
 ## Instalação do MongoDB e Robo 3T
+
 
 
 
