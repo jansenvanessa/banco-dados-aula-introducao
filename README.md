@@ -156,10 +156,36 @@ MongoDB é um banco de dados não relacional (noSQL) orientado a documentos no f
 
 ![mongo_db](https://i.imgur.com/ciBulIx.png)
 
-## Instalação do MongoDB e Robo 3T
+## Instalação do MongoDB
 
+Aqui vamos focar na instalação do MongoDB no Windows, mas caso seja necessário a instalação no Linux ou MacOS, basta seguir os links abaixo:
 
+ * MacOS: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+ * Linux: https://docs.mongodb.com/manual/administration/install-on-linux/
 
+### Windows
+
+Para instalar o MongoDB no Windows, deve-se acessar o link: https://www.mongodb.com/try/download/community , selecionar corretamente as comboboxes, conforme a imagem abaixo, e em seguinda, pressionar o botão de *Download*.
+
+![install_mongo_db_windows_1](https://i.imgur.com/AtnO0SK.png)
+
+Feito isso, deve-se seguir os passos a seguir:
+
+![install_mongo_db_windows_2](https://i.imgur.com/pUJxDO1.png)
+
+![install_mongo_db_windows_3](https://i.imgur.com/renmHqg.png)
+
+![install_mongo_db_windows_4](https://i.imgur.com/zxbDujj.png)
+
+![install_mongo_db_windows_5](https://i.imgur.com/tWyXQ8X.png)
+
+![install_mongo_db_windows_6](https://i.imgur.com/V86Mska.png)
+
+### Inicializando o servidor
+
+Para iniciar o servidor abra o terminal e digite **mongod**
+
+// CONTINUAR
 
 ## Comandos básicos
 
