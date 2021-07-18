@@ -428,9 +428,34 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 ## AND
 
+* Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome **E** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find({"paciente.nome": /.*da.*/, "paciente.endereco": /.*Rua dos Bobos.*/})` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
+
+`{<key>:<value>, <key>:<value>}`
+
 ## OR
 
+* Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome e **OU** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find($or:[{"paciente.nome": /.*da.*/},{"paciente.endereco": /.*Rua dos Bobos.*/}])` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
+
 # Atualizando um documento
+
+* Quero incluir o valor da consulta da paciente Rita da Silva. Como posso fazer isso? No Robo 3T posso clicar com o direito e escolher a opção `Update Documents`. Feito isso ele irá exibir um json já com um template para você utilizar para alterar o documento:
+
+![mongo_robo_3t_update](https://i.imgur.com/3XaoLxi.png)
+
+Na primeiro json que aparece na imagem `{ "key" : "value" }` (onde tem o comentário `//query`) corresponde ao filtro que vamos fazer para a alteração que iremos setar onde tem o comentário `//update`. Em outras palavras, você diz que você quer alterar tal coisa onde tem o `//update` quando o documento tiver `{ "key" : "value" }` (onde tem o comentário `//query`). Por exemplo, vamos incluir o valor da consulta nas consultas da paciente Rita da Silva:
+
+```
+db.getCollection('Consultas').update(
+    { "paciente.nome" : "Rita da Silva" },
+    { "valor": 100 }
+);
+```
+
+Poderíamos incluir a parte de `\\options` da imagem se quiséssemos:
+
+* Utilizando o `multi`, passando valor `true` alteraríamos todos os documentos com a query `{ "key" : "value" }` que especificamos. Caso informemos valor `false` alteraríamos apenas um documento com essa query `{ "key" : "value" }`. O valor padrão caso não informemos o multi é `false`.
+* Utilizando o `upsert`, podemos informar o valor `true` caso queiramos inserir um novo documento caso não exista nenhum documento que satisfaça a query `{ "key" : "value" }`. O valor padrão caso não informemos o upsert é `false`.
+
 
 # Excluindo um documento
 
@@ -463,7 +488,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
         * Diferente - `{<key>:{$ne:<value>}}`
         * AND - `{<key>:<value>, <key>:<value>}`
         * OR - `$or:[{<key>:<value>},{<key>:<value>}]`
-    * Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
+    * Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})`
     * Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
     * Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
     * Limitar - `db.nomedacollection.find().limit(numero)`
