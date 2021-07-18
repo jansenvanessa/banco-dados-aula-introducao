@@ -199,11 +199,11 @@ Para começar, vamos visualizar as bases de dados (databases) existentes, utiliz
 
 ![mongo_databases](https://i.imgur.com/Jhagope.png)
 
-Vamos criar um novo database para trabalharmos? Para isso utilize o comando `use reprograma`.
+Vamos criar um novo database para trabalharmos? Para isso utilize o comando `use reprograma`. Esse comando irá selecionar um database ou criar, caso esse não exista. Com nosso database criado podemos agora trabalhar em cima dele e criar nossas collections!
 
 #### Collections
 
-Vamos recordar do nosso de documento que fizemos para consultas da Clínica Jansen's Anatomy?
+Antes de criar collections no nosso novo database `reprograma`, vamos recordar do nosso de documento que fizemos para consultas da Clínica Jansen's Anatomy?
 
 ```
 [
