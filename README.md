@@ -332,34 +332,107 @@ Se formos no Robo 3T e rodamos a consulta `db.getCollection('Consultas').find({}
 
 ![mongo_robo_3t_insert_result_2](https://i.imgur.com/ABexvL3.png)
 
-## Comandos básicos
+Que tal exercitarmos e inserirmos mais consultas na nossa collection `Consultas`? Podemos tentar inserir três essas consultas abaixo:
+
+```
+{
+    "medico": {
+        "nome": "Lucas Pereira",
+        "documentoProfissional": "CRM-SP 5599",
+        "especialidade": "Pediatria",
+        "telefone": "(11) 4321-12343"
+    },
+    "paciente": {
+        "nome": "Maria da Costa",
+        "planoSaude": "Amil",
+        "carteirinha": "123456789",
+        "endereco": "Rua dos Bobos número 0",
+        "telefone": "(11) 9999-9999"
+    },
+    "prescricoes": "Xarope",
+    "prontuario": "Paciente se queixa de dor de garganta",
+    "dataHora": ISODate("2021-07-12T10:00Z")
+}
+```
+
+```
+    {
+        "medico": {
+            "nome": "Lucas Pereira",
+            "documentoProfissional": "CRM-SP 5599",
+            "especialidade": "Pediatria",
+            "telefone": "(11) 4321-12343"
+        },
+        "paciente": {
+            "nome": "Maria da Costa",
+            "planoSaude": "Amil",
+            "carteirinha": "123456789",
+            "endereco": "Rua dos Bobos número 0",
+            "telefone": "(11) 9999-9999"
+        },
+        "prontuario": "Consulta de retorno, paciente apresentou melhora",
+        "dataHora": ISODate("2021-07-19T11:00Z")
+    }
+```
+
+```
+    {
+        "medico": {
+            "nome": "Sarah Freitas",
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
+        },
+        "paciente": {
+            "nome": "Rita da Silva",
+            "telefone": "(11) 8888-8888"
+        },
+        "prescricoes": "10 sessões de fisioterapia",
+        "prontuario": "Consulta de retorno, paciente apresentou inflamacao na musculatura",
+        "dataHora": ISODate("2021-07-20T09:00Z")
+    }
+```
+
+Feito isso teremos ao total 5 documentos na nossa collection `Consultas`! Com esses documentos podemos fazer algumas operações que veremos a seguir.
+
+# Consultas no MongoDB
+
+Agora que temos a nossa base de dados populada, podemos efetuar algumas consultas que poderemos necessitar em algumas situações:
+
+* Como saber em quais consultas o médico receitou `Xarope`? Podemos consultar de duas maneiras:
+
+1) Quando queremos retornar todos os documentos que contém apenas o texto exato `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` não será retornado nessa consulta): `db.getCollection('Consultas').find({prescricoes: 'Xarope'})`
+2) Quando queremos retornar todos os documentos que contém o texto `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` nessa consulta também irá retornar, além de retornar também caso esteja escrito apenas `Xarope`): `db.getCollection('Consultas').find({prescricoes: /.*Xarope.*/})`
+
+* 
+
+## Resumo de comandos básicos para utilizar no terminal conectado ao mongo:
 
 1. Base de Dados
-    1. Exibir existentes - `show dbs`
-    1. Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
-    1. Excluir base selecionada - `db.dropDatabase()`
-1. Coleção
-    1. Criar coleção de documentos - `db.createCollection('nome-da-collection')` (Mongo é case sensitive)
-    1. Exibir todas as coleções - `show collections`
-    1. Apagar coleção de documentos - `db.nomedacollection.drop()`
-1. Documentos
-    1. Inserir - `db.nomedacollection.insert(documento)`
-    1. Importar documentos de um arquivo - `mongoimport <options> <connection-string> <file>`
-    1. Consultar -  `db.nomedacollection.find({selecao})`
-        1. Igualdade - `{<key>:<value>}`
-        1. Menor que - `{<key>:{$lt:<value>}}`
-        1. Menor ou igual - `{<key>:{$lte:<value>}}`
-        1. Maior que - `{<key>:{$gt:<value>}}`
-        1. Maior ou igual - `{<key>:{$gte:<value>}}`
-        1. Diferente - `{<key>:{$ne:<value>}}`
-        1. AND - `{<key>:<value>, <key>:<value>}`
-        1. OR - `$or:[{<key>:<value>},{<key>:<value>}]`
-    1. Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
-    1. Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
-    1. Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
-    1. Limitar - `db.nomedacollection.find().limit(numero)`
-    1. "Pular" - `db.nomedacollection.find().skip(numero)`
-    1. Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
+    1.1 Exibir existentes - `show dbs`
+    1.2 Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
+    1.3 Excluir base selecionada - `db.dropDatabase()`
+2. Coleção
+    2.1 Criar coleção de documentos - `db.createCollection('nome-da-collection')` (Mongo é case sensitive)
+    2.2 Exibir todas as coleções - `show collections`
+    2.3 Apagar coleção de documentos - `db.nomedacollection.drop()`
+3. Documentos
+    3.1 Inserir - `db.nomedacollection.insert(documento)`
+    3.2 Consultar -  `db.nomedacollection.find({selecao})`
+        3.2.1 Igualdade - `{<key>:<value>}`
+        3.2.2 Menor que - `{<key>:{$lt:<value>}}`
+        3.2.3 Menor ou igual - `{<key>:{$lte:<value>}}`
+        3.2.4 Maior que - `{<key>:{$gt:<value>}}`
+        3.2.5 Maior ou igual - `{<key>:{$gte:<value>}}`
+        3.2.6 Diferente - `{<key>:{$ne:<value>}}`
+        3.2.7 AND - `{<key>:<value>, <key>:<value>}`
+        3.2.8 OR - `$or:[{<key>:<value>},{<key>:<value>}]`
+    3.3 Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
+    3.4 Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
+    3.5 Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
+    3.6 Limitar - `db.nomedacollection.find().limit(numero)`
+    3.7 "Pular" - `db.nomedacollection.find().skip(numero)`
+    3.8 Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
 
 ### Comandos extras
 
