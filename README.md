@@ -251,8 +251,6 @@ Como poderíamos armazenar essas informações no nosso banco de dados mongo? Po
 * Para visualizar todas as collections criadas no nosso database podemos utilizar o comando `show collections`.
 * Caso não queiramos mais nossa collection Consultas, podemos utilizar o comando `db.Consultas.drop()` para deletá-la.
 
-Caso utilizemos o comando `db.Consultas.find()` para visualizar tudo o que contém nessa collection `Consultas` que criamos, vamos ver que nenhuma linha será retornada, pois está vazia, sem nenhuma consulta registrada. Vamos inserir algumas consultas novas?
-
 ## Robo 3T
 
 Poderíamos inserir nossas consultas na nossa nova Collection Consultas pelo terminal mesmo, porém podemos utilizar um programa com interface gráfica bem mais simples de utilizar para continuarmos nossas atividades. Vamos então instalar o Robo 3T para facilitar nosso uso do mongo? Para isso acesse o link https://robomongo.org/ e efetue o download e instalação do mesmo.
