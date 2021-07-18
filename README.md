@@ -183,9 +183,107 @@ Feito isso, deve-se seguir os passos a seguir:
 
 ### Inicializando o servidor
 
-Para iniciar o servidor abra o terminal e digite **mongod**
+Para iniciar o servidor abra o terminal e digite **mongod** e pressione. Com o servidor de pé, deixamos esse terminal aberto e abrimos um novo para trabalharmos com o banco de dados.
 
-// CONTINUAR
+![init_mongo](https://i.imgur.com/yx2siOU.png)
+
+### Utilizando o mongodb
+
+No novo terminal que abrimos, para começarmos a trabalhar com o mongo devemos digitar **mongo** e pressionar enter:
+
+![using_mongo](https://i.imgur.com/sB0Zstt.png)
+
+#### Databases
+
+Para começar, vamos visualizar as bases de dados (databases) existentes, utilizando o comando `show dbs`:
+
+![mongo_databases](https://i.imgur.com/Jhagope.png)
+
+Vamos criar um novo database para trabalharmos? Para isso utilize o comando `use reprograma`.
+
+#### Collections
+
+Vamos recordar do nosso de documento que fizemos para consultas da Clínica Jansen's Anatomy?
+
+```
+[
+    {
+        "_id": "a24e470f-08c0-4c03-8312-18575a41d247",
+        "dataHora": "12/07/2021 10:00:00" ,
+        "medico" : { 
+                nome: "Sarah Freitas", 
+                documentoProfissional: "CRM-SP 1234",
+                especialidade: "Clínica Médica",
+                telefone: "(11) 1212-12112",
+        },
+        "paciente": {
+                nome: "Rita da Silva",
+                telefone: "(11) 8888-8888"
+        },
+        "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
+        "exames": "Ressonancia Magnetica e Raio X",
+        prontuario: "Paciente se queixa de dor nas costas",
+    },
+    {
+        "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
+        "dataHora": "12/07/2021 11:00",
+        "medico" : { 
+                nome: "Sarah Freitas", 
+                documentoProfissional: "CRM-SP 1234",
+                especialidade: "Clínica Médica",
+                telefone: "(11) 1212-12112",
+        },
+        "paciente": {
+                nome: "Daniel Borges",
+                planoSaude : "Bradesco",
+                carteirinha: "98765432",
+                endereco: "Avenida dos Papagaios número 131 apto 55A",
+                telefone: "(11) 7777-7777"
+        },
+        "prescricoes": "Remédio para dor de estômago",
+        "exames": "Endoscopia",
+        prontuario: "Paciente se queixa de dor e queimação no estômago",
+    },
+    // E todo o restante dos dados em diante
+]
+```
+Como poderíamos armazenar essas informações no nosso banco de dados mongo? Podemos criar uma **collection** chamada *Consultas* para armazenar essas informações.  * Para criar nossa coleção de consultas (collection), utilizaremos o comando `db.createCollection('Consultas')`.
+* Para visualizar todas as collections criadas no nosso database podemos utilizar o comando `show collections`.
+* Caso não queiramos mais nossa collection Consultas, podemos utilizar o comando `db.Consultas.drop()` para deletá-la.
+
+Caso utilizemos o comando `db.Consultas.find()` para visualizar tudo o que contém nessa collection `Consultas` que criamos, vamos ver que nenhuma linha será retornada, pois está vazia, sem nenhuma consulta registrada. Vamos inserir algumas consultas novas?
+
+## Robo 3T
+
+Poderíamos inserir nossas consultas na nossa nova Collection Consultas pelo terminal mesmo, porém podemos utilizar um programa com interface gráfica bem mais simples de utilizar para continuarmos nossas atividades. Vamos então instalar o Robo 3T para facilitar nosso uso do mongo? Para isso acesse o link https://robomongo.org/ e efetue o download e instalação do mesmo.
+
+Com o mesmo já instalado podemos nos conectar no nosso banco de dados que está rodando ali naquele terminal que deixamos aberto. Para isso clicamos nos dois computadores do menu:
+
+![mongo_robo_3t_1](https://i.imgur.com/79WfKcj.png)
+
+Em seguida, clicamos em `create` e ajustamos o nome da conexão para um nome personalizado. Feito isso clicamos em conectar:
+
+![mongo_robo_3t_2](https://i.imgur.com/DzVPLdI.png)
+![mongo_robo_3t_3](https://i.imgur.com/U9FYFzn.png)
+
+Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podemos ver listado o database `reprograma` e nossa collection `Consultas` que criamos.
+
+# Inserindo documentos na Collection
+
+Agora que já estamos utilizando o Robo 3T, vamos continuar criando nossas consultas na collection `Consultas`? Vamos dar dois cliques na collection `Consultas` no Robo 3T. Feito isso ele já vai abrir o comando `db.getCollection('Consultas').find({})` para visualizar tudo o que contém nessa collection:
+
+![mongo_robo_3t_4](https://i.imgur.com/yZAKMIz.png)
+
+Podemos ver que não foi retornada nenhuma linha, pois essa collection `Consultas` está vazia, sem nenhuma consulta ainda registrada. Vamos inserir algumas consultas novas? Para isso podemos utilizar o comando abaixo:
+
+
+new Date("2016-05-18T16:00:00Z");
+
+```
+db.Consultas.insert({
+    "medico" : 
+})`
+```
 
 ## Comandos básicos
 
