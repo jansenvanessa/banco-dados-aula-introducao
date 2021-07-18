@@ -445,16 +445,16 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 ## Resumo de comandos básicos para utilizar no terminal conectado ao mongo:
 
 1. Base de Dados
-    1.1 Exibir existentes - `show dbs`
-    1.2 Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
-    1.3 Excluir base selecionada - `db.dropDatabase()`
+    * Exibir existentes - `show dbs`
+    * Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
+    * Excluir base selecionada - `db.dropDatabase()`
 2. Coleção
-    2.1 Criar coleção de documentos - `db.createCollection('nome-da-collection')` (Mongo é case sensitive)
-    2.2 Exibir todas as coleções - `show collections`
-    2.3 Apagar coleção de documentos - `db.nomedacollection.drop()`
+    * Criar coleção de documentos - `db.createCollection('nome-da-collection')` (Mongo é case sensitive)
+    * Exibir todas as coleções - `show collections`
+    * Apagar coleção de documentos - `db.nomedacollection.drop()`
 3. Documentos
-    3.1 Inserir - `db.nomedacollection.insert(documento)`
-    3.2 Consultar -  `db.nomedacollection.find({selecao})`
+    * Inserir - `db.nomedacollection.insert(documento)`
+    * Consultar -  `db.nomedacollection.find({selecao})`
         3.2.1 Igualdade - `{<key>:<value>}`
         3.2.2 Menor que - `{<key>:{$lt:<value>}}`
         3.2.3 Menor ou igual - `{<key>:{$lte:<value>}}`
@@ -463,12 +463,12 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
         3.2.6 Diferente - `{<key>:{$ne:<value>}}`
         3.2.7 AND - `{<key>:<value>, <key>:<value>}`
         3.2.8 OR - `$or:[{<key>:<value>},{<key>:<value>}]`
-    3.3 Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
-    3.4 Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
-    3.5 Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
-    3.6 Limitar - `db.nomedacollection.find().limit(numero)`
-    3.7 "Pular" - `db.nomedacollection.find().skip(numero)`
-    3.8 Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
+    * Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
+    * Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
+    * Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
+    * Limitar - `db.nomedacollection.find().limit(numero)`
+    * "Pular" - `db.nomedacollection.find().skip(numero)`
+    * Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
 
 ### Comandos extras
 
