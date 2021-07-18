@@ -455,14 +455,14 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 3. Documentos
     * Inserir - `db.nomedacollection.insert(documento)`
     * Consultar -  `db.nomedacollection.find({selecao})`
-        3.2.1 Igualdade - `{<key>:<value>}`
-        3.2.2 Menor que - `{<key>:{$lt:<value>}}`
-        3.2.3 Menor ou igual - `{<key>:{$lte:<value>}}`
-        3.2.4 Maior que - `{<key>:{$gt:<value>}}`
-        3.2.5 Maior ou igual - `{<key>:{$gte:<value>}}`
-        3.2.6 Diferente - `{<key>:{$ne:<value>}}`
-        3.2.7 AND - `{<key>:<value>, <key>:<value>}`
-        3.2.8 OR - `$or:[{<key>:<value>},{<key>:<value>}]`
+        * Igualdade - `{<key>:<value>}`
+        * Menor que - `{<key>:{$lt:<value>}}`
+        * Menor ou igual - `{<key>:{$lte:<value>}}`
+        * Maior que - `{<key>:{$gt:<value>}}`
+        * Maior ou igual - `{<key>:{$gte:<value>}}`
+        * Diferente - `{<key>:{$ne:<value>}}`
+        * AND - `{<key>:<value>, <key>:<value>}`
+        * OR - `$or:[{<key>:<value>},{<key>:<value>}]`
     * Atualizar - `db.nomedacollection.update({selecao}, {$set:{campos-atualizados}})` (Considerar o multi)
     * Excluir - `db.nomedacollection.remove({selecao})` (Considerar exclusão de seleção, apenas um e todos)
     * Projetar - `db.nomedacollection.find({selecao},{<key>:1})`
