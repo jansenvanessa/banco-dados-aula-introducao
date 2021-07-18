@@ -399,12 +399,48 @@ Feito isso teremos ao total 5 documentos na nossa collection `Consultas`! Com es
 
 Agora que temos a nossa base de dados populada, podemos efetuar algumas consultas que poderemos necessitar em algumas situações:
 
+## Igualdade
+
 * Como saber em quais consultas o médico receitou `Xarope`? Podemos consultar de duas maneiras:
 
 1) Quando queremos retornar todos os documentos que contém apenas o texto exato `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` não será retornado nessa consulta): `db.getCollection('Consultas').find({prescricoes: 'Xarope'})`
-2) Quando queremos retornar todos os documentos que contém o texto `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` nessa consulta também irá retornar, além de retornar também caso esteja escrito apenas `Xarope`): `db.getCollection('Consultas').find({prescricoes: /.*Xarope.*/})`
+2) Quando queremos retornar todos os documentos que contém o texto `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` nessa consulta irá retornar, além de retornar também caso esteja escrito apenas `Xarope`): `db.getCollection('Consultas').find({prescricoes: /.*Xarope.*/})`
 
-* 
+## Menor que
+
+* Como saber quais consultas ocorreram antes das 11h do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$lt: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas no dia 12/07/2021 às 10h.
+
+## Menor ou igual
+
+* Como saber quais consultas ocorreram até das 11h (inclusive 11h) do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$lte: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas no dia 12/07/2021 às 10h e 1 com consulta às 11h nesse dia.
+
+## Maior que
+
+* Como saber quais consultas ocorreram depois das 11h do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gt: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas, um com consulta no dia 19/07/2021 às 11h e um com consulta no dia 20/07/2021 às 9h.
+
+## Maior ou igual
+
+* Como saber quais consultas ocorreram depois das 11h (inclusive o das 11h) do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gte: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 3 documentos de consultas, um com consulta no dia 12/07/2021 às 11h, um com consulta no dia 19/07/2021 às 11h, um com consulta no dia 20/07/2021 às 9h.
+
+## Diferente
+
+* Quero ver todas as consultas que ocorreram sem ser a consulta das 11h do dia 12/07/2021: `db.getCollection('Consultas').find({dataHora: {$ne: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 4 documentos, que são todos menos a consulta do dia 12/07/2021 às 11h.
+
+## AND
+
+## OR
+
+# Atualizando um documento
+
+# Excluindo um documento
+
+# Projeção do documento
+
+# Limitando resultado de consultas
+
+# Pulando resultado de consultas
+
+# Ordenando resultado de consultas
 
 ## Resumo de comandos básicos para utilizar no terminal conectado ao mongo:
 
