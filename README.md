@@ -85,7 +85,7 @@ As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de
         },
         "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
         "exames": "Ressonancia Magnetica e Raio X",
-        prontuario: "Paciente se queixa de dor nas costas",
+        "prontuario": "Paciente se queixa de dor nas costas",
     },
     {
         "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
@@ -105,7 +105,7 @@ As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de
         },
         "prescricoes": "Remédio para dor de estômago",
         "exames": "Endoscopia",
-        prontuario: "Paciente se queixa de dor e queimação no estômago",
+        "prontuario": "Paciente se queixa de dor e queimação no estômago",
     },
     // E todo o restante dos dados em diante
 ]
@@ -222,7 +222,7 @@ Antes de criar collections no nosso novo database `reprograma`, vamos recordar d
         },
         "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
         "exames": "Ressonancia Magnetica e Raio X",
-        prontuario: "Paciente se queixa de dor nas costas",
+        "prontuario": "Paciente se queixa de dor nas costas",
     },
     {
         "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
@@ -242,7 +242,7 @@ Antes de criar collections no nosso novo database `reprograma`, vamos recordar d
         },
         "prescricoes": "Remédio para dor de estômago",
         "exames": "Endoscopia",
-        prontuario: "Paciente se queixa de dor e queimação no estômago",
+        "prontuario": "Paciente se queixa de dor e queimação no estômago",
     },
     // E todo o restante dos dados em diante
 ]
@@ -275,16 +275,62 @@ Agora que já estamos utilizando o Robo 3T, vamos continuar criando nossas consu
 
 ![mongo_robo_3t_4](https://i.imgur.com/yZAKMIz.png)
 
-Podemos ver que não foi retornada nenhuma linha, pois essa collection `Consultas` está vazia, sem nenhuma consulta ainda registrada. Vamos inserir algumas consultas novas? Para isso podemos utilizar o comando abaixo:
+Podemos ver que não foi retornada nenhuma linha, pois essa collection `Consultas` está vazia, sem nenhuma consulta ainda registrada. Vamos inserir algumas consultas novas? Para isso podemos clicar com o botão direito na nossa collection `Consultas` e clicar em `Insert Document`:
 
+![mongo_robo_3t_insert](https://i.imgur.com/pyz9GTt.png)
 
-new Date("2016-05-18T16:00:00Z");
+Com isso ele vai abrir uma janela para passarmos o json que queremos inserir na nossa collection `Consultas`. Podemos passar o seguinte json:
+
+```
+{
+    "medico" : { 
+            "nome": "Sarah Freitas", 
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
+    },
+    "paciente": {
+            "nome": "Rita da Silva",
+            "telefone": "(11) 8888-8888"
+    },
+    "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
+    "exames": "Ressonancia Magnetica e Raio X",
+    "prontuario": "Paciente se queixa de dor nas costas",
+    "dataHora": ISODate("2021-07-12T10:00Z")
+}
+```
+
+Ao salvar nosso json, podemos rodar o comando `db.getCollection('Consultas').find({})` no Robo 3T e o mesmo irá listar o documento que criamos:
+
+![mongo_robo_3t_insert_result](https://i.imgur.com/8WGBjVc.png)
+
+Caso queiramos inserir uma nova consulta via terminal, sem utilizar o Robo 3T, podemos utilizar o comando abaixo no terminal (que está conectado no mongo):
 
 ```
 db.Consultas.insert({
-    "medico" : 
-})`
+    "medico" : { 
+        "nome": "Sarah Freitas", 
+        "documentoProfissional": "CRM-SP 1234",
+        "especialidade": "Clínica Médica",
+        "telefone": "(11) 1212-12112"
+    },
+    "paciente": {
+        "nome": "Daniel Borges",
+        "planoSaude" : "Bradesco",
+        "carteirinha": "98765432",
+        "endereco": "Avenida dos Papagaios número 131 apto 55A",
+        "telefone": "(11) 7777-7777"
+    },
+    "prescricoes": "Remédio para dor de estômago",
+    "exames": "Endoscopia",
+    "prontuario": "Paciente se queixa de dor e queimação no estômago",
+    "dataHora": ISODate("2021-07-12T11:00Z")   
+});
 ```
+
+Se formos no Robo 3T e rodamos a consulta `db.getCollection('Consultas').find({})` veremos que teremos agora dois registros (documentos) na nossa collection `Consultas`:
+
+![mongo_robo_3t_insert_result_2](https://i.imgur.com/ABexvL3.png)
 
 ## Comandos básicos
 
