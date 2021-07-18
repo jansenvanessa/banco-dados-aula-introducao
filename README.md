@@ -261,12 +261,15 @@ Com o mesmo já instalado podemos nos conectar no nosso banco de dados que está
 
 ![mongo_robo_3t_1](https://i.imgur.com/79WfKcj.png)
 
-Em seguida, clicamos em `create` e ajustamos o nome da conexão para um nome personalizado. Feito isso clicamos em conectar:
+Em seguida, clicamos em `create` e ajustamos o nome da conexão para um nome personalizado. Feito isso salvamos nossa conexão e em seguida clicamos em conectar:
 
 ![mongo_robo_3t_2](https://i.imgur.com/DzVPLdI.png)
-![mongo_robo_3t_3](https://i.imgur.com/U9FYFzn.png)
+![mongo_robo_3t_3](https://i.imgur.com/ENIMzgN.png)
 
-Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podemos ver listado o database `reprograma` e nossa collection `Consultas` que criamos.
+
+Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podemos ver listado o database `reprograma` e nossa collection `Consultas` que criamos:
+
+![mongo_robo_3t_4](https://i.imgur.com/U9FYFzn.png)
 
 # Inserindo documentos na Collection
 
