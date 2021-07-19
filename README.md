@@ -24,7 +24,7 @@ A clínica Jansen's Health é um pouco "cringe", então costuma agendar as consu
 
 ### Como resolver isso?
 
-Nesse primeiro momento, onde vamos ajudá-los, a clínica precisa organizar os dados de consultas. Essas consultas são compostas de informações da consulta e informações do paciente atendido e médico que atendeu.
+Para ajudá-los a organizar esses dados da clínica, precisamos antes entender a informação que eles têm para ser organizada. Essas informações são compostas de dados de consulta e dados do paciente atendido e médico que atendeu.
 
 O que temos desses dados?
 
