@@ -204,47 +204,46 @@ Vamos criar um novo database para trabalharmos? Para isso utilize o comando `use
 Antes de criar collections no nosso novo database `reprograma`, vamos recordar do nosso de documento que fizemos para consultas da Clínica Jansen's Anatomy?
 
 ```
-[
     {
         "_id": "a24e470f-08c0-4c03-8312-18575a41d247",
-        "dataHora": "12/07/2021 10:00:00" ,
+        "dataHora": ISODate("2021-07-12T10:00:00Z"),
         "medico" : { 
-                nome: "Sarah Freitas", 
-                documentoProfissional: "CRM-SP 1234",
-                especialidade: "Clínica Médica",
-                telefone: "(11) 1212-12112",
+            "nome": "Sarah Freitas", 
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
         },
         "paciente": {
-                nome: "Rita da Silva",
-                telefone: "(11) 8888-8888"
+            "nome": "Rita da Silva",
+            "telefone": "(11) 8888-8888"
         },
         "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
         "exames": "Ressonancia Magnetica e Raio X",
-        "prontuario": "Paciente se queixa de dor nas costas",
+        "prontuario": "Paciente se queixa de dor nas costas"
     },
     {
         "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
-        "dataHora": "12/07/2021 11:00",
+        "dataHora": ISODate("2021-07-12T11:00:00Z"),
         "medico" : { 
-                nome: "Sarah Freitas", 
-                documentoProfissional: "CRM-SP 1234",
-                especialidade: "Clínica Médica",
-                telefone: "(11) 1212-12112",
+            "nome": "Sarah Freitas", 
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
         },
         "paciente": {
-                nome: "Daniel Borges",
-                planoSaude : "Bradesco",
-                carteirinha: "98765432",
-                endereco: "Avenida dos Papagaios número 131 apto 55A",
-                telefone: "(11) 7777-7777"
+            "nome": "Daniel Borges",
+            "planoSaude": "Bradesco",
+            "carteirinha": "98765432",
+            "endereco": "Avenida dos Papagaios número 131 apto 55A",
+            "telefone": "(11) 7777-7777"
         },
         "prescricoes": "Remédio para dor de estômago",
         "exames": "Endoscopia",
-        "prontuario": "Paciente se queixa de dor e queimação no estômago",
+        "prontuario": "Paciente se queixa de dor e queimação no estômago"
     },
     // E todo o restante dos dados em diante
-]
 ```
+
 Como poderíamos armazenar essas informações no nosso banco de dados mongo? Podemos criar uma **collection** chamada *Consultas* para armazenar essas informações.  * Para criar nossa coleção de consultas (collection), utilizaremos o comando `db.createCollection('Consultas')`.
 * Para visualizar todas as collections criadas no nosso database podemos utilizar o comando `show collections`.
 * Caso não queiramos mais nossa collection Consultas, podemos utilizar o comando `db.Consultas.drop()` para deletá-la.
