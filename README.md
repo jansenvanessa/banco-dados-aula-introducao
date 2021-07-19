@@ -244,7 +244,7 @@ Antes de criar collections no nosso novo database `reprograma`, vamos recordar d
     // E todo o restante dos dados em diante
 ```
 
-Como poderíamos armazenar essas informações no nosso banco de dados mongo? Podemos criar uma **collection** chamada *Consultas* para armazenar essas informações.  * Para criar nossa coleção de consultas (collection), utilizaremos o comando `db.createCollection('Consultas')`.
+* Como podemos armazenar essas informações no nosso banco de dados mongo? Para isso vamos criar uma **collection** chamada *Consultas* para armazenar essas informações. Para criar nossa coleção de consultas (collection), utilizaremos o comando `db.createCollection('Consultas')`.
 * Para visualizar todas as collections criadas no nosso database podemos utilizar o comando `show collections`.
 * Caso não queiramos mais nossa collection Consultas, podemos utilizar o comando `db.Consultas.drop()` para deletá-la.
 
