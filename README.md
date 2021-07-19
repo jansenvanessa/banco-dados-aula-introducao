@@ -536,4 +536,11 @@ Espero que tenha gostado da atividade e o segredo é praticar!!! Quanto mais exe
 
 ![exercise](https://media1.popsugar-assets.com/files/thumbor/XGbRY5FyWX99jE-AVcO0vx7A008/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/04/26/922/n/1922283/a08d3bf8b558b4c9_giphy_4_/i/When-Your-BFF-Tells-You-First-Name-Guy-She-Going-Date-You-Spring-CIA-Mode.gif)
 
+Você deve criar um banco de dados novo (database) e uma coleção com um nome pertinente, de acordo com os dados e tema que você escolher. Os seguintes comandos devem ser feitos e entregues:
 
+* Inserção de documentos
+* Atualização de documentos
+* Exclusão de documentos
+* Consulta com projeção
+* Consulta utilizando combinação entre os seletores
+* Consulta paginada e ordenada (utilizar *skip*, *limit* e *sort*)
