@@ -250,7 +250,7 @@ Antes de criar collections no nosso novo database `reprograma`, vamos recordar d
 
 ## Robo 3T
 
-Poderíamos inserir nossas consultas na nossa nova Collection Consultas pelo terminal mesmo, porém podemos utilizar um programa com interface gráfica bem mais simples de utilizar para continuarmos nossas atividades. Vamos então instalar o Robo 3T para facilitar nosso uso do mongo? Para isso acesse o link https://robomongo.org/ e efetue o download e instalação do mesmo.
+Poderíamos inserir novas consultas na nossa nova Collection Consultas pelo terminal como fizemos anteriormente, porém podemos melhorar nossa experiência utilizando um programa com interface gráfica bem mais simples de utilizar para continuarmos nossas atividades. Vamos então instalar o Robo 3T para facilitar nosso uso do mongo? Para isso acesse o link https://robomongo.org/ e efetue o download e instalação do mesmo.
 
 Com o mesmo já instalado podemos nos conectar no nosso banco de dados que está rodando ali naquele terminal que deixamos aberto. Para isso clicamos nos dois computadores do menu:
 
