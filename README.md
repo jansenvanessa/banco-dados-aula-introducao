@@ -433,7 +433,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 ## Atualizando um documento
 
-* Quero incluir o valor da consulta da paciente Rita da Silva. Como posso fazer isso? No Robo 3T posso clicar com o direito e escolher a opção `Update Documents`. Feito isso ele irá exibir um json já com um template para você utilizar para alterar o documento:
+Quero incluir o valor da consulta da paciente Rita da Silva. Como posso fazer isso? No Robo 3T posso clicar com o direito e escolher a opção `Update Documents`. Feito isso ele irá exibir um json já com um template para você utilizar para alterar o documento:
 
 ![mongo_robo_3t_update](https://i.imgur.com/3XaoLxi.png)
 
@@ -462,19 +462,19 @@ Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão di
 
 ## Projeção do documento
 
-* Caso eu queira buscar todos os documentos, porém para mim a única informação que quero que retorne seja a `dataHora` da consulta, como fazer? Podemos utilizar a seguinte seleção: `db.getCollection('Consultas').find({},{"dataHora" : 1, "_id" : 0})` . Nesse caso utilizamos o número `1` para informar que queremos que esse atributo velha no resultado, porém utilizamos o número `0` informando que não queremos que apareça no resultado da busca. Então na nossa listagem somente virá retornando o atributo `dataHora` das consultas.
+Caso eu queira buscar todos os documentos, porém para mim a única informação que quero que retorne seja a `dataHora` da consulta, como fazer? Podemos utilizar a seguinte seleção: `db.getCollection('Consultas').find({},{"dataHora" : 1, "_id" : 0})` . Nesse caso utilizamos o número `1` para informar que queremos que esse atributo velha no resultado, porém utilizamos o número `0` informando que não queremos que apareça no resultado da busca. Então na nossa listagem somente virá retornando o atributo `dataHora` das consultas.
 
 ## Limitando resultado de consultas
 
-* Caso eu queira retornar, por exemplo, no máximo 2 consultas na minha busca eu posso utilizar o limit: `db.getCollection('Consultas').find({}).limit(2)`
+Caso eu queira retornar, por exemplo, no máximo 2 consultas na minha busca eu posso utilizar o limit: `db.getCollection('Consultas').find({}).limit(2)`
 
 ## Pulando resultado de consultas
 
-* Caso eu queira retornar as consultas mas remover alguns registros da lista (ex: 3 registros), não os mostrandos: `db.getCollection('Consultas').find().skip(3)`
+Caso eu queira retornar as consultas mas remover alguns registros da lista (ex: 3 registros), não os mostrandos: `db.getCollection('Consultas').find().skip(3)`
 
 ## Ordenando resultado de consultas
 
-* Caso queiramos ordenar o resultado das consultas por algum atributo, por exemplo, pelo nome do médico, podemos fazer a seguinte busca: `db.getCollection('Consultas').find().sort({"medico.nome": 1})`
+Caso queiramos ordenar o resultado das consultas por algum atributo, por exemplo, pelo nome do médico, podemos fazer a seguinte busca: `db.getCollection('Consultas').find().sort({"medico.nome": 1})`
 
 Esse número `1` indica que estamos ordenando do primeiro para o último, no caso do nome, da letra A -> Z do alfabeto. Caso fosse interessante ordenar ao contrário, da letra Z -> A, colocaríamos `-1` no lugar.
 
