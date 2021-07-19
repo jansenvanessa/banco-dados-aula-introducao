@@ -24,7 +24,7 @@ A clínica Jansen's Health é um pouco "cringe", então costuma agendar as consu
 
 ### Como resolver isso?
 
-Para ajudá-los a organizar esses dados da clínica, precisamos antes entender a informação que eles têm para ser organizada. Essas informações são compostas de dados de consulta e dados do paciente atendido e médico que atendeu.
+Para ajudá-los a organizar os dados da clínica, precisamos antes entender a informação que eles têm para ser organizada. Essas informações são compostas de dados de consulta, dados do paciente atendido e médico que atendeu.
 
 O que temos desses dados?
 
@@ -43,7 +43,7 @@ Pronto, anotamos as informações utilizadas no dia a dia da clínica e agora? C
 No banco de dados relacional nossas informações ficam em tabelas e se relacionam. Os bancos de dados relacionais são conhecidos como banco de dados SQL. Essa sigla SQL siginifica “Structured Query Language” que traduzindo para o português significa: “Linguagem de Consulta Estruturada”.
 Com o SQL, você pode executar vários comandos para criar, alterar, gerenciar, consultar, dentre outras informações no seu banco de dados. Costumamos dizer que bancos SQL seguem uma modelagem relacional, pois estes se baseiam no fato de que todos seus dados sejam guardados em tabelas.
 
-Agora que entendemos um pouco o que seria um banco de dados relacional, vamos montar um esboço do nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
+Para entendermos melhor o que seria um banco de dados relacional, vamos montar um esboço do nosso banco de dados relacional da nossa clínica? Primeiro vamos desenhar um modelo para nosso banco:
 
 ![bd_relacional](https://i.imgur.com/8l5vVxf.png?1)
 
