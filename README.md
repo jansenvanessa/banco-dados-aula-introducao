@@ -459,15 +459,30 @@ Poderíamos incluir a parte de `\\options` da imagem se quiséssemos:
 
 # Excluindo um documento
 
-Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão direito e escolher a opção `Delete Document` ou usar o comando `db.Consultas.remove({selecao})`, onde `selecao` é a condição que você quer passar para a deleção. Exemplo: quero deletar todas as consultas que possui valor da consulta 100: `db.Consultas.remove({"preco" : 100})`
+Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão direito e escolher a opção `Delete Document` ou usar o comando `db.Consultas.remove({selecao})`, onde `selecao` é a condição que você quer passar para a deleção. Exemplo: quero deletar todas as consultas que possui valor da consulta 100: `db.Consultas.remove({"preco" : 100})`. Caso queiramos deletar apenas um único registro nessa condição podemos fazer essa remoção dessa forma: `db.Consultas.remove({"preco" : 100},{justOne: true})`
 
 # Projeção do documento
 
+// verificar nao entendi: `db.nomedacollection.find({selecao},{<key>:1})`
+
 # Limitando resultado de consultas
+
+* Caso eu queira retornar, por exemplo, no máximo 2 consultas na minha busca eu posso utilizar o limit: `db.getCollection('Consultas').find({}).limit(2)`
 
 # Pulando resultado de consultas
 
+* Caso eu queira retornar as consultas mas remover alguns registros da lista (ex: 3 registros), não os mostrandos: `db.getCollection('Consultas').find().skip(3)`
+
 # Ordenando resultado de consultas
+
+* Caso queiramos ordenar o resultado das consultas por algum atributo, por exemplo, pelo nome do médico, podemos fazer a seguinte busca: `db.getCollection('Consultas').find().sort({"medico.nome": 1})`
+
+Esse número `1` indica que estamos ordenando do primeiro para o último, no caso do nome, da letra A -> Z do alfabeto. Caso fosse interessante ordenar ao contrário, da letra Z -> A, colocaríamos `-1` no lugar.
+
+* Caso queiramos o resultado das consultas pelo nome do médico (A -> Z) e ordenar da última consulta para a primeira, considerando o atributo `dataHora`: 
+`db.getCollection('Consultas').find({}).sort({"medico.nome": 1, "dataHora": -1})`
+
+# Melhorando a visualização 
 
 ## Resumo de comandos básicos para utilizar no terminal conectado ao mongo:
 
@@ -496,15 +511,6 @@ Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão di
     * Limitar - `db.nomedacollection.find().limit(numero)`
     * "Pular" - `db.nomedacollection.find().skip(numero)`
     * Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
-
-### Comandos extras
-
-* Embelezamento - `pretty()`
-* Atualizar ou Inserir - `save()`
-* Indexação
-* Agregação
-* Backup
-* Restauração
 
 ## Acabamos, e agora? Vamos exercitar!
 
