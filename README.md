@@ -69,46 +69,44 @@ Esse banco de dados foi projetado para armazenar e consultar dados como document
 As consultas médicas do Jansen's Anatomy em um banco noSQL (não relacional) de Documentos ficariam assim nesse formato:
     
 ```
-[
     {
         "_id": "a24e470f-08c0-4c03-8312-18575a41d247",
-        "dataHora": "12/07/2021 10:00:00" ,
+        "dataHora": ISODate("2021-07-12T10:00:00Z"),
         "medico" : { 
-                nome: "Sarah Freitas", 
-                documentoProfissional: "CRM-SP 1234",
-                especialidade: "Clínica Médica",
-                telefone: "(11) 1212-12112",
+            "nome": "Sarah Freitas", 
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
         },
         "paciente": {
-                nome: "Rita da Silva",
-                telefone: "(11) 8888-8888"
+            "nome": "Rita da Silva",
+            "telefone": "(11) 8888-8888"
         },
         "prescricoes": "Tomar remédio x para dor 2 vezes ao dia por 5 dias.",
         "exames": "Ressonancia Magnetica e Raio X",
-        "prontuario": "Paciente se queixa de dor nas costas",
+        "prontuario": "Paciente se queixa de dor nas costas"
     },
     {
         "_id": "72a84cf4-c21d-4ed1-9cff-ab23260182d7",
-        "dataHora": "12/07/2021 11:00",
+        "dataHora": ISODate("2021-07-12T11:00:00Z"),
         "medico" : { 
-                nome: "Sarah Freitas", 
-                documentoProfissional: "CRM-SP 1234",
-                especialidade: "Clínica Médica",
-                telefone: "(11) 1212-12112",
+            "nome": "Sarah Freitas", 
+            "documentoProfissional": "CRM-SP 1234",
+            "especialidade": "Clínica Médica",
+            "telefone": "(11) 1212-12112"
         },
         "paciente": {
-                nome: "Daniel Borges",
-                planoSaude : "Bradesco",
-                carteirinha: "98765432",
-                endereco: "Avenida dos Papagaios número 131 apto 55A",
-                telefone: "(11) 7777-7777"
+            "nome": "Daniel Borges",
+            "planoSaude": "Bradesco",
+            "carteirinha": "98765432",
+            "endereco": "Avenida dos Papagaios número 131 apto 55A",
+            "telefone": "(11) 7777-7777"
         },
         "prescricoes": "Remédio para dor de estômago",
         "exames": "Endoscopia",
-        "prontuario": "Paciente se queixa de dor e queimação no estômago",
+        "prontuario": "Paciente se queixa de dor e queimação no estômago"
     },
     // E todo o restante dos dados em diante
-]
 ```
 #### Banco de dados de Grafos (noSQL)
 
