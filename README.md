@@ -429,7 +429,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 ### OR
 
-* Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome e **OU** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find($or:[{"paciente.nome": /.*da.*/},{"paciente.endereco": /.*Rua dos Bobos.*/}])` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
+* Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome e **OU** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find({$or:[{"paciente.nome": /.*da.*/},{"paciente.endereco": /.*Rua dos Bobos.*/}]})` .  Nesse caso serão retornados 3 documentos que possuem o paciente com essas informações.
 
 ## Atualizando um documento
 
