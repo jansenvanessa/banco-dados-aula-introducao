@@ -482,8 +482,6 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
 * Caso queiramos o resultado das consultas pelo nome do médico (A -> Z) e ordenar da última consulta para a primeira, considerando o atributo `dataHora`: 
 `db.getCollection('Consultas').find({}).sort({"medico.nome": 1, "dataHora": -1})`
 
-# Melhorando a visualização 
-
 ## Resumo de comandos básicos para utilizar no terminal conectado ao mongo:
 
 1. Base de Dados
@@ -512,18 +510,7 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
     * "Pular" - `db.nomedacollection.find().skip(numero)`
     * Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
 
-## Acabamos, e agora? Vamos exercitar!
-
-![exercise](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkx9NbIzjUfe7io1-mvfkRybTZGH-C0RL0A&usqp=CAU)
-
-Agora que já sabemos o que é um banco de dados, já sabemos como instalar um e já conhecemos os comandos para utilizá-lo, podemos e devemos exercitar! O que podemos criar de novo? O que podemos atualizar? O que podemos buscar de informação nesse banco de dados?
-
-// TO DO - passar dever de casa
-
-Espero que tenha gostado da atividade e o segredo é praticar!!! Quanto mais exercícios fizer, melhor :) Abs e até mais!
-
----
-## Links Extras:
+# Links Extras:
 
 - [https://kenzie.com.br/blog/banco-de-dados/](https://kenzie.com.br/blog/banco-de-dados/)
 - [https://rockcontent.com/br/blog/banco-de-dados/](https://rockcontent.com/br/blog/banco-de-dados/)
@@ -532,3 +519,21 @@ Espero que tenha gostado da atividade e o segredo é praticar!!! Quanto mais exe
 - [https://gabriel-faraday.medium.com/o-que-%C3%A9-nosql-9d7fd54792d4](https://gabriel-faraday.medium.com/o-que-%C3%A9-nosql-9d7fd54792d4)
 - [https://medium.com/qaninja/principais-diferen%C3%A7as-de-um-banco-de-dados-tradicional-e-o-mongodb-4fc1117453f8](https://medium.com/qaninja/principais-diferen%C3%A7as-de-um-banco-de-dados-tradicional-e-o-mongodb-4fc1117453f8)
 - [https://www.fiveacts.com.br/sgbd/](https://www.fiveacts.com.br/sgbd/)
+
+---
+
+## Acabamos, e agora? Vamos exercitar!
+
+![exercise](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzkx9NbIzjUfe7io1-mvfkRybTZGH-C0RL0A&usqp=CAU)
+
+Agora que já sabemos o que é um banco de dados, já sabemos como instalar um e já conhecemos os comandos para utilizá-lo, podemos e devemos exercitar! O que podemos criar de novo? O que podemos atualizar? O que podemos buscar de informação nesse banco de dados?
+
+Espero que tenha gostado da atividade e o segredo é praticar!!! Quanto mais exercícios fizer, melhor :) Abs e até mais!
+
+---
+
+## Para Casa
+
+![exercise](https://media1.popsugar-assets.com/files/thumbor/XGbRY5FyWX99jE-AVcO0vx7A008/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2017/04/26/922/n/1922283/a08d3bf8b558b4c9_giphy_4_/i/When-Your-BFF-Tells-You-First-Name-Guy-She-Going-Date-You-Spring-CIA-Mode.gif)
+
+
