@@ -266,7 +266,7 @@ Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podem
 
 ![mongo_robo_3t_4](https://i.imgur.com/U9FYFzn.png)
 
-# Inserindo documentos na Collection
+## Inserindo documentos na Collection
 
 Agora que já estamos utilizando o Robo 3T, vamos continuar criando nossas consultas na collection `Consultas`? Vamos dar dois cliques na collection `Consultas` no Robo 3T. Feito isso ele já vai abrir o comando `db.getCollection('Consultas').find({})` para visualizar tudo o que contém nessa collection:
 
@@ -392,26 +392,26 @@ Que tal exercitarmos e inserirmos mais consultas na nossa collection `Consultas`
 
 Feito isso teremos ao total 5 documentos na nossa collection `Consultas`! Com esses documentos podemos fazer algumas operações que veremos a seguir.
 
-# Consultas no MongoDB
+## Consultas no MongoDB
 
 Agora que temos a nossa base de dados populada, podemos efetuar algumas consultas que poderemos necessitar em algumas situações:
 
-## Igualdade
+### Igualdade
 
 * Como saber em quais consultas o médico receitou `Xarope`? Podemos consultar de duas maneiras:
 
 1) Quando queremos retornar todos os documentos que contém apenas o texto exato `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` não será retornado nessa consulta): `db.getCollection('Consultas').find({prescricoes: 'Xarope'})`
 2) Quando queremos retornar todos os documentos que contém o texto `Xarope` na prescrição (caso esteja escrito `20ml de Xarope antes de dormir` nessa consulta irá retornar, além de retornar também caso esteja escrito apenas `Xarope`): `db.getCollection('Consultas').find({prescricoes: /.*Xarope.*/})`
 
-## Menor que
+### Menor que
 
 * Como saber quais consultas ocorreram antes das 11h do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$lt: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas no dia 12/07/2021 às 10h.
 
-## Menor ou igual
+### Menor ou igual
 
 * Como saber quais consultas ocorreram até das 11h (inclusive 11h) do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$lte: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas no dia 12/07/2021 às 10h e 1 com consulta às 11h nesse dia.
 
-## Maior que
+### Maior que
 
 * Como saber quais consultas ocorreram depois das 11h do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gt: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas, um com consulta no dia 19/07/2021 às 11h e um com consulta no dia 20/07/2021 às 9h.
 
@@ -419,11 +419,11 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 * Como saber quais consultas ocorreram depois das 11h (inclusive o das 11h) do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gte: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 3 documentos de consultas, um com consulta no dia 12/07/2021 às 11h, um com consulta no dia 19/07/2021 às 11h, um com consulta no dia 20/07/2021 às 9h.
 
-## Diferente
+### Diferente
 
 * Quero ver todas as consultas que ocorreram sem ser a consulta das 11h do dia 12/07/2021: `db.getCollection('Consultas').find({dataHora: {$ne: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 4 documentos, que são todos menos a consulta do dia 12/07/2021 às 11h.
 
-## AND
+### AND
 
 * Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome **E** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find({"paciente.nome": /.*da.*/, "paciente.endereco": /.*Rua dos Bobos.*/})` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
 
@@ -433,7 +433,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 * Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome e **OU** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find($or:[{"paciente.nome": /.*da.*/},{"paciente.endereco": /.*Rua dos Bobos.*/}])` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
 
-# Atualizando um documento
+## Atualizando um documento
 
 * Quero incluir o valor da consulta da paciente Rita da Silva. Como posso fazer isso? No Robo 3T posso clicar com o direito e escolher a opção `Update Documents`. Feito isso ele irá exibir um json já com um template para você utilizar para alterar o documento:
 
@@ -454,23 +454,23 @@ Poderíamos incluir a parte de `\\options` da imagem se quiséssemos:
 * Utilizando o `upsert`, podemos informar o valor `true` caso queiramos inserir um novo documento caso não exista nenhum documento que satisfaça a query `{ "key" : "value" }`. O valor padrão caso não informemos o upsert é `false`.
 
 
-# Excluindo um documento
+## Excluindo um documento
 
 Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão direito e escolher a opção `Delete Document` ou usar o comando `db.Consultas.remove({selecao})`, onde `selecao` é a condição que você quer passar para a deleção. Exemplo: quero deletar todas as consultas que possui valor da consulta 100: `db.Consultas.remove({"preco" : 100})`. Caso queiramos deletar apenas um único registro nessa condição podemos fazer essa remoção dessa forma: `db.Consultas.remove({"preco" : 100},{justOne: true})`
 
-# Projeção do documento
+## Projeção do documento
 
 * Caso eu queira buscar todos os documentos, porém para mim a única informação que quero que retorne seja a `dataHora` da consulta, como fazer? Podemos utilizar a seguinte seleção: `db.getCollection('Consultas').find({},{"dataHora" : 1, "_id" : 0})` . Nesse caso utilizamos o número `1` para informar que queremos que esse atributo velha no resultado, porém utilizamos o número `0` informando que não queremos que apareça no resultado da busca. Então na nossa listagem somente virá retornando o atributo `dataHora` das consultas.
 
-# Limitando resultado de consultas
+## Limitando resultado de consultas
 
 * Caso eu queira retornar, por exemplo, no máximo 2 consultas na minha busca eu posso utilizar o limit: `db.getCollection('Consultas').find({}).limit(2)`
 
-# Pulando resultado de consultas
+## Pulando resultado de consultas
 
 * Caso eu queira retornar as consultas mas remover alguns registros da lista (ex: 3 registros), não os mostrandos: `db.getCollection('Consultas').find().skip(3)`
 
-# Ordenando resultado de consultas
+## Ordenando resultado de consultas
 
 * Caso queiramos ordenar o resultado das consultas por algum atributo, por exemplo, pelo nome do médico, podemos fazer a seguinte busca: `db.getCollection('Consultas').find().sort({"medico.nome": 1})`
 
@@ -506,6 +506,8 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
     * Limitar - `db.nomedacollection.find().limit(numero)`
     * "Pular" - `db.nomedacollection.find().skip(numero)`
     * Ordernar -  `db.nomedacollection.find().sort({<key>:1})` (Considerar crescente e decrescente, e combinações)
+
+---
 
 # Links Extras:
 
