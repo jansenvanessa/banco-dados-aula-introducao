@@ -481,7 +481,7 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
 * Caso queiramos o resultado das consultas pelo nome do médico (A -> Z) e ordenar da última consulta para a primeira, considerando o atributo `dataHora`: 
 `db.getCollection('Consultas').find({}).sort({"medico.nome": 1, "dataHora": -1})`
 
-# Resumo de comandos básicos Mongo:
+# Resumo de comandos básicos Mongo
 
 1. Base de Dados
     * Exibir existentes - `show dbs`
