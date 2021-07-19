@@ -415,7 +415,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 * Como saber quais consultas ocorreram depois das 11h do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gt: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 2 documentos de consultas, um com consulta no dia 19/07/2021 às 11h e um com consulta no dia 20/07/2021 às 9h.
 
-## Maior ou igual
+### Maior ou igual
 
 * Como saber quais consultas ocorreram depois das 11h (inclusive o das 11h) do dia 12/07/2021? `db.getCollection('Consultas').find({dataHora: {$gte: ISODate('2021-07-12 11:00:00.000Z') }})`. Nesse caso serão retornados 3 documentos de consultas, um com consulta no dia 12/07/2021 às 11h, um com consulta no dia 19/07/2021 às 11h, um com consulta no dia 20/07/2021 às 9h.
 
@@ -429,7 +429,7 @@ Agora que temos a nossa base de dados populada, podemos efetuar algumas consulta
 
 `{<key>:<value>, <key>:<value>}`
 
-## OR
+### OR
 
 * Quero ver todas as consultas com pacientes que tenham a palavra `da` no nome e **OU** que também tenham endereço na `Rua dos Bobos`: `db.getCollection('Consultas').find($or:[{"paciente.nome": /.*da.*/},{"paciente.endereco": /.*Rua dos Bobos.*/}])` .  Nesse caso serão retornados 2 documentos que possuem o paciente com essas informações.
 
