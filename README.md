@@ -262,7 +262,7 @@ Em seguida, clicamos em `create` e ajustamos o nome da conexão para um nome per
 ![mongo_robo_3t_3](https://i.imgur.com/ENIMzgN.png)
 
 
-Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podemos ver listado o database `reprograma` e nossa collection `Consultas` que criamos:
+Podemos ver que quando nos conectamos no nosso banco de dados pelo Robo 3T podemos ver listado o database `reprograma` e nossa collection `Consultas` que criamos anteriormente pelo terminal:
 
 ![mongo_robo_3t_4](https://i.imgur.com/U9FYFzn.png)
 
