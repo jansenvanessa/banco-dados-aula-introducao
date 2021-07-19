@@ -442,7 +442,11 @@ Na primeiro json que aparece na imagem `{ "key" : "value" }` (onde tem o coment√
 ```
 db.getCollection('Consultas').update(
     { "paciente.nome" : "Rita da Silva" },
-    { "valor": 100 }
+    { $set:
+        { 
+            "valor": 100 
+        }
+    }
 );
 ```
 
