@@ -462,7 +462,7 @@ Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão di
 
 ## Projeção do documento
 
-Caso eu queira buscar todos os documentos, porém para mim a única informação que quero que retorne seja a `dataHora` da consulta, como fazer? Podemos utilizar a seguinte seleção: `db.getCollection('Consultas').find({},{"dataHora" : 1, "_id" : 0})` . Nesse caso utilizamos o número `1` para informar que queremos que esse atributo velha no resultado, porém utilizamos o número `0` informando que não queremos que apareça no resultado da busca. Então na nossa listagem somente virá retornando o atributo `dataHora` das consultas.
+Caso eu queira buscar todos os documentos, porém a única informação que quero que retorne seja a `dataHora` da consulta, como fazer? Podemos utilizar a seguinte seleção: `db.getCollection('Consultas').find({},{"dataHora" : 1, "_id" : 0})` . Nesse caso utilizamos o número `1` para informar que queremos que esse atributo velha no resultado, porém utilizamos o número `0` informando que não queremos que apareça no resultado da busca. Então na nossa listagem somente virá retornando o atributo `dataHora` das consultas.
 
 ## Limitando resultado de consultas
 
