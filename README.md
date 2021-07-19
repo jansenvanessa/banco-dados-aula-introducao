@@ -459,6 +459,8 @@ Poderíamos incluir a parte de `\\options` da imagem se quiséssemos:
 
 # Excluindo um documento
 
+Para excluir um documento pelo Robo 3T basta clicar em cima dele com o botão direito e escolher a opção `Delete Document` ou usar o comando `db.Consultas.remove({selecao})`, onde `selecao` é a condição que você quer passar para a deleção. Exemplo: quero deletar todas as consultas que possui valor da consulta 100: `db.Consultas.remove({"preco" : 100})`
+
 # Projeção do documento
 
 # Limitando resultado de consultas
