@@ -483,6 +483,8 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
 
 # Resumo de comandos básicos Mongo
 
+![mongo_commands](https://static.imasters.com.br/wp-content/uploads/2017/09/mongodb-logo-rgb-j6w271g1xn-768x203.jpg)
+
 1. Base de Dados
     * Exibir existentes - `show dbs`
     * Selecionar para uso (e criar, caso não exista) - `use nome-do-database`
