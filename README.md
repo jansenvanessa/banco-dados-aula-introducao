@@ -58,7 +58,7 @@ Esse comando acima significa: *selecionar tudo de Pacientes*. Feito isso serão 
 
 ### Banco de dados não relacionais (noSQL)
 
-No banco de dados não relacional não utilizamos o *SQL* (por isso chamamos de noSQL - não SQL) e também não temos esse esquema de tabelas e linhas. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
+No banco de dados não relacional não utilizamos o *SQL* e também não temos esse esquema de tabelas e linhas. Se não temos tabelas como isso fica armazenado então? Temos alguns modelos de bancos noSQL e vamos falar um pouco deles agora para entender melhor como os dados ficariam armazenados:
 
 ![bd_nao_relacional](https://i.imgur.com/fHnOR4O.png)
 
