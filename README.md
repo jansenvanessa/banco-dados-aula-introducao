@@ -158,8 +158,22 @@ MongoDB é um banco de dados não relacional (noSQL) orientado a documentos no f
 
 Aqui vamos focar na instalação do MongoDB no Windows, mas caso seja necessário a instalação no Linux ou MacOS, basta seguir os links abaixo:
 
- * MacOS: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
  * Linux: https://docs.mongodb.com/manual/administration/install-on-linux/
+ * MacOS: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/ (É importante lembrar de criar a pasta `data/db` dentro do diretório `/Users/nomeUsuario`)
+
+ps: Caso seu **MacOS** seja de uma versão mais antiga (ex: Sierra), deve-se rodar esses comandos no terminal para instalar:
+
+```
+$ brew tap mongodb/brew
+$ brew install mongodb-community@4.2
+```
+E então utilizar os comandos abaixo para iniciar e parar o servidor, respectivamente:
+
+```
+$ brew services start mongodb-community@4.2
+$ brew services stop mongodb-community@4.2
+```
+Em versões mais atuais do mac, podemos subir o servidor utilizando o comando: `mongod --dbpath=/Users/nomeUsuario/data/db`.
 
 ### Windows
 
@@ -173,23 +187,31 @@ Feito isso, deve-se seguir os passos a seguir:
 
 ![install_mongo_db_windows_3](https://i.imgur.com/renmHqg.png)
 
-![install_mongo_db_windows_4](https://i.imgur.com/zxbDujj.png)
+Devemos acessar o painel de controle para adicionar variáveis de ambiente. Para isso devemos clicar em *editar as variáveis de ambiente do sistema* e em seguida na janela que for aberta, clicar em *Variáveis de Ambiente...*
 
-![install_mongo_db_windows_5](https://i.imgur.com/tWyXQ8X.png)
+![install_mongo_db_windows_4](https://i.imgur.com/HvBt8LJ.png)
 
-![install_mongo_db_windows_6](https://i.imgur.com/V86Mska.png)
+![install_mongo_db_windows_5](https://i.imgur.com/H6914Th.png)
+
+Ao clicar em *Variáveis de Ambiente*, irá abrir uma janela onde deverá ser adicionado o caminho da pasta bin de onde está instalado o seu mongoDB. Exemplo, adicionar o caminho *C:\Program Files\MongoDB\Server\5.0\bin*
 
 ### Inicializando o servidor
 
-Para iniciar o servidor abra o terminal e digite **mongod** e pressione. Com o servidor de pé, deixamos esse terminal aberto e abrimos um novo para trabalharmos com o banco de dados.
+Para iniciar o servidor, abra o terminal e navegue, por meio dele, até a pasta *C:\Program Files\MongoDB\Server\5.0\bin*. Para isso, digite no terminal `cd C:\Program Files\MongoDB\Server\5.0\bin` e pressione "enter". Com isso você estará na pasta desejada, e deverá então digitar `mongod` e pressionar enter. Feito isso, o servidor deverá ficar de pé.
 
-![init_mongo](https://i.imgur.com/yx2siOU.png)
+![init_mongo](https://i.imgur.com/ykXe9XT.png)
 
 ### Utilizando o mongodb
 
-No novo terminal que abrimos, para começarmos a trabalhar com o mongo devemos digitar **mongo** e pressionar enter:
+Com o servidor rodando em um terminal, deixamos esse terminal aberto e abrimos um novo para trabalharmos com o banco de dados. No novo terminal que abrimos, sem fechar o que está rodando o servidor, devemos navegar até a pasta bin do mongo, como fizemos para subir o servidor, digitando `cd C:\Program Files\MongoDB\Server\5.0\bin`:
 
+![using_mongo_directory](https://i.imgur.com/krZvjCF.png)
+
+Já dentro da pasta bin no terminal, digitar **mongo** e pressionar enter:
+ 
 ![using_mongo](https://i.imgur.com/sB0Zstt.png)
+
+Feito isso, já poderemos começar a trabalhar com o mongo!
 
 #### Databases
 
@@ -251,6 +273,8 @@ Antes de criar collections no nosso novo database `reprograma`, vamos recordar d
 ## Robo 3T
 
 Poderíamos continuar inserindo novas consultas na nossa nova Collection Consultas pelo terminal, como fizemos anteriormente, porém podemos melhorar nossa experiência utilizando um programa com interface gráfica bem mais simples de utilizar para continuarmos nossas atividades. Vamos então instalar o Robo 3T para facilitar nosso uso do mongo? Para isso acesse o link https://robomongo.org/ e efetue o download e instalação do mesmo.
+
+![mongo_robo_3t_0](https://pbs.twimg.com/profile_images/674614010587795456/sCsiuBmt_400x400.png)
 
 Com o mesmo já instalado podemos nos conectar no nosso banco de dados que está rodando ali naquele terminal que deixamos aberto. Para isso clicamos nos dois computadores do menu:
 
@@ -514,6 +538,8 @@ Esse número `1` indica que estamos ordenando do primeiro para o último, no cas
 ---
 
 # Links Extras:
+
+- Apresentação utilizada na aula: https://docs.google.com/presentation/d/1Aj-rh80A1Tb72gtmxpZ-AchGCC_441hCEL0eZ7Ui4I8/edit?usp=sharing
 
 - [https://kenzie.com.br/blog/banco-de-dados/](https://kenzie.com.br/blog/banco-de-dados/)
 - [https://rockcontent.com/br/blog/banco-de-dados/](https://rockcontent.com/br/blog/banco-de-dados/)
